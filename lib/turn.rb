@@ -32,10 +32,16 @@ end
 end
 
 def turn(board)
-  loop do puts "Please enter 1-9:"
+  loop do
+  puts "Please enter 1-9:"
   user_input = gets.chomp
   index = input_to_index(user_input)
   if valid_move?(board, index)
+    move(board, index, player = "X")
+    display_board(board)
+  else
+    puts "Please enter 1-9:"
+    valid_move?(board, index)
     move(board, index, player = "X")
     display_board(board)
     break
